@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        tr:hover {
+            background-color: #f4f4f4;
+        }
+        .search-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .search-buttons button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .search-buttons button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Employee Information</h1>
+    </header>
+    <div class="container">
+      
+        <input type="text" id="searchInput" placeholder="Enter search term...">
+        <table id="employeeTable">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Father Name</th>
+                <th>Department</th>
+                <th>Rank</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Salary</th>
+            </tr>
+            <!-- Sample data -->
+            <tr>
+                <td>001</td>
+                <td>John Doe</td>
+                <td>John Doe Sr.</td>
+                <td>Finance</td>
+                <td>Manager</td>
+                <td>john@example.com</td>
+                <td>1234567890</td>
+                <td>$5000</td><!-- Total days present in the month -->
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Jane Smith</td>
+                <td>Jane Smith Sr.</td>
+                <td>Human Resources</td>
+                <td>HR Executive</td>
+                <td>jane@example.com</td>
+                <td>9876543210</td>
+                <td>$4500</td> <!-- Total days present in the month -->
+            </tr>
+            <div class="search-buttons">
+                <button onclick="searchByName()">Search by Name</button>
+                <button onclick="searchById()">Search by ID</button>
+            </div>
+            <!-- Add more rows for additional employees -->
+        </table>
+        <button onclick="printEmployeeInfo()">Print Employee Information</button>
+    </div>
+
+    <script>
+        function printEmployeeInfo() {
+            window.print();
+        }
+
+        function searchByName() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("employeeTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1]; // Index 1 corresponds to the Name column
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function searchById() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("employeeTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0]; // Index 0 corresponds to the ID column
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

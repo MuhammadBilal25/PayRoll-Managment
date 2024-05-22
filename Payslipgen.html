@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payslip Generator</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="submit"] {
+            width: calc(100% - 100px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .payslip {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .payslip h3 {
+            margin-top: 0;
+        }
+        .payslip-item {
+            margin-bottom: 10px;
+        }
+        .total {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Payslip Generator</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="employee_id">Employee ID:</label>
+                <input type="text" id="employee_id" name="employee_id" placeholder="Enter Employee ID" required>
+            </div>
+            <div class="form-group">
+                <label for="employee_name">Employee Name:</label>
+                <input type="text" id="employee_name" name="employee_name" placeholder="Enter Employee Name" required>
+            </div>
+            <input type="submit" value="Search">
+        </form>
+
+        <!-- Payslip display -->
+        <div class="payslip" id="payslip" style="display: none;">
+            <h3>Payslip</h3>
+            <div class="payslip-item">
+                <span>Employee ID:</span>
+                <span id="emp_id"></span>
+                
+            </div>
+            <div class="payslip-item">
+                <span>Employee Name:</span>
+                <span id="emp_name"></span>
+            </div>
+            <div class="payslip-item">
+                <span>Basic Salary:</span>
+                <span id="basic_salary"></span>
+            </div>
+            <div class="payslip-item">
+                <span>Allowance:</span>
+                <span id="allowance"></span>
+            </div>
+            <div class="payslip-item total">
+                <span>Total:</span>
+                <span id="total"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dummy data (you would replace this with actual data retrieval from database)
+        const dummyData = {
+            basic_salary: 5000,
+            allowance: 1000
+        };
+
+        // Function to display payslip
+        function showPayslip(data) {
+            document.getElementById('basic_salary').textContent = data.basic_salary;
+            document.getElementById('allowance').textContent = data.allowance;
+            document.getElementById('total').textContent = data.basic_salary + data.allowance;
+            document.getElementById('payslip').style.display = 'block';
+        }
+
+        // Dummy function to simulate data retrieval from server
+        function fetchData(employeeID, employeeName) {
+            // Here you would make an AJAX request to your server to fetch the actual data
+            // For this example, we'll just use dummyData
+            showPayslip(dummyData);
+            // Display employee name and id
+            document.getElementById('emp_id').textContent = employeeID;
+            document.getElementById('emp_name').textContent = employeeName;
+        }
+
+        // Event listener for form submission
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            const employeeID = document.getElementById('employee_id').value;
+            const employeeName = document.getElementById('employee_name').value;
+            fetchData(employeeID, employeeName);
+        });
+    </script>
+</body>
+</html>

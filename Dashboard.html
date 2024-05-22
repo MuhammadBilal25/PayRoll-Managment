@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Management Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fdfdfd;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+            
+        }
+        .card h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Payroll Management System</h1>
+    </header>
+    <nav>
+        <a href="Newemp.html">New Employee</a>
+        <a href="Empinfo.html">Employee Information</a>
+       
+        <a href="Salary.html">Salary Management</a>
+        <a href="Payslipgen.html">Pay Slip Generator</a>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h2>New Employee</h2>
+            <p>Add a new employee to the system.</p>
+           <button><a href="Newemp.html">ADD EMPLOYEE</a></button> 
+        </div>
+        <div class="card">
+            <h2>Employee Information</h2>
+            <p>View and manage employee information.</p>
+          <button> <a href="Empinfo.html">Employee Information</a></button> 
+        </div>
+       
+        <div class="card">
+            <h2>Salary Management</h2>
+            <p>Manage employee salaries and deductions.</p>
+            <button> <a href="Salary.html">Salary Mangment</a></button>
+        </div>
+        <div class="card">
+            <h2>Pay Slip Generator</h2>
+            <p>Generate pay slips for employees.</p>
+            <button><a href="Payslipgen.html">Pay Slip Generator</a></button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Employee Attendance</h1>
+    </header>
+    <div class="container">
+        <form>
+            <label for="month">Month:</label>
+            <select id="month" name="month">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+
+            <label for="year">Year:</label>
+            <select id="year" name="year">
+                <!-- Change the years as needed -->
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <!-- Add more years as needed -->
+            </select>
+
+            <!-- Add input fields for 50 employees -->
+            <label for="employee1">Employee 1 Name:</label>
+            <input type="text" id="employee1Name" name="employee1Name">
+            <label for="employee1ID">Employee 1 ID:</label>
+            <input type="text" id="employee1ID" name="employee1ID">
+
+            <!-- Repeat this block for each employee -->
+            <!-- Add more input fields for employee attendance as needed -->
+            <!-- Use a loop to generate input fields for multiple employees -->
+            
+            <!-- You can use JavaScript to generate input fields for multiple employees -->
+            <script>
+                // Function to dynamically generate input fields for employees
+                function generateEmployeeFields() {
+                    var container = document.querySelector('.container');
+                    for (var i = 2; i <= 50; i++) {
+                        var labelName = document.createElement('label');
+                        labelName.setAttribute('for', 'employee' + i + 'Name');
+                        labelName.textContent = 'Employee ' + i + ' Name:';
+                        container.appendChild(labelName);
+
+                        var inputName = document.createElement('input');
+                        inputName.setAttribute('type', 'text');
+                        inputName.setAttribute('id', 'employee' + i + 'Name');
+                        inputName.setAttribute('name', 'employee' + i + 'Name');
+                        container.appendChild(inputName);
+
+                        var labelID = document.createElement('label');
+                        labelID.setAttribute('for', 'employee' + i + 'ID');
+                        labelID.textContent = 'Employee ' + i + ' ID:';
+                        container.appendChild(labelID);
+
+                        var inputID = document.createElement('input');
+                        inputID.setAttribute('type', 'text');
+                        inputID.setAttribute('id', 'employee' + i + 'ID');
+                        inputID.setAttribute('name', 'employee' + i + 'ID');
+                        container.appendChild(inputID);
+                    }
+                }
+
+                // Call the function to generate input fields for employees
+                generateEmployeeFields();
+            </script>
+
+            <input type="submit" value="Submit Attendance">
+        </form>
+    </div>
+</body>
+</html>
